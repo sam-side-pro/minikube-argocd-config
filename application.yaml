@@ -1,21 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: myapp-argo-Application
+  name: myapp-argo-application
   namespace: argocd
 spec:
   project: default
   
   source:
     repoURL: https://github.com/sam-side-pro/minikube-argocd-config
-    TargetRevision: HEAD
+    targetRevision: HEAD
     path: dev
   destination:
     server: https://kubernetes.default.svc
-    namespaces: myapp
+    namespace: myapp
   syncPolicy:
     syncOptions:
-    - CreateNameSpace=true
+    - CreateNamespace=true
 
     automated:
       selfHeal: true
